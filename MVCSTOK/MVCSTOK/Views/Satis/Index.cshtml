@@ -1,0 +1,31 @@
+﻿@using MVCSTOK.Models.Entity
+@model MVCSTOK.Models.Entity.TBLSATIS
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<button type="button" class="btn btn-block" data-toggle="modal" data-target="#Modal1">Satış Yap</button>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title">
+                    Satış Ekranı
+                </h1>
+            </div>
+            <form method="post" action="/Satis/YeniSatis">
+                <div>Ürün Adı</div>
+                @Html.DropDownListFor(m => m.TBLURUN.URUNID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,26 @@
+﻿@model MVCSTOK.Models.Entity.TBLKATEGORİLER
+@{
+    ViewBag.Title = "KategoriGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+@using (Html.BeginForm("Guncelle", "Kategori", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.KATEGORIID, "Kategori Id", new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.KATEGORIID, new { @class = "form-control", @readonly = true })
+
+        <br />
+        @Html.LabelFor(m => m.KATEGORIAD, "Kategori Adı:", new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.KATEGORIAD, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-success" id="btn">Güncelle</button>
+    </div>
+    <script>
+        $("#btn").click(function () {
+            alert('Güncelleme İşlemmi Gerçekleşmiştir..');
+        });
+    </script>
+}
+
+

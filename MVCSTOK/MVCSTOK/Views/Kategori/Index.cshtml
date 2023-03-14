@@ -1,0 +1,33 @@
+﻿@using MVCSTOK.Models.Entity
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<TBLKATEGORİLER>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-hover">
+    <tr>
+        <th>Kategori ID</th>
+        <th>Kategori Adı</th>
+        @*<th>Sil</th>*@
+        <th>Güncelle</th>
+        <th>Sil</th>
+    </tr>
+    <tbody>
+        @foreach (var ktgr in Model)
+        {
+            <tr>
+                <td>@ktgr.KATEGORIID</td>
+                <td>@ktgr.KATEGORIAD</td>
+                @*<td><a href="/Kategori/Sil/@ktgr.KATEGORIID" class="btn btn-danger">SİL</a></td>*@
+                <td><a href="/Kategori/KategoriGetir/@ktgr.KATEGORIID" class="btn btn-success">GÜNCELLE</a></td>
+                <td>@Html.ActionLink("Delete", "Sil", new { id = ktgr.KATEGORIID }, new { @class = "btn btn-info", onclick = "return confirm('Kategoriyi Silmek İstiyor Musunuz??')" })</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
+<a href="/Kategori/YeniKategori/" class="btn btn-info">Yeni Kategori Ekle</a>
+<div style="margin-top:30px"></div>

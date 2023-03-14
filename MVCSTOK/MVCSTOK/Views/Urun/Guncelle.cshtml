@@ -1,0 +1,39 @@
+﻿@model MVCSTOK.Models.Entity.TBLURUN
+@{
+    ViewBag.Title = "Guncelle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("UrunGuncelle", "Urun", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.URUNID, "Ürün ID", new { @class = "label-control" })
+        @Html.TextBoxFor(m => m.URUNID, new { @class = "form-control", @readonly = true })
+        <br />
+        @Html.LabelFor(m => m.URUNAD, "Ürün Adı", new { @class = "label-control" })
+        @Html.TextBoxFor(m => m.URUNAD, new { @class = "form-control" })
+
+        <br />
+        @Html.LabelFor(m => m.MARKA, "Marka", new { @class = "label-control" })
+        @Html.TextBoxFor(m => m.MARKA, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.URUNKATEGORI, "Kategori", new { @class = "label-control" })
+        @Html.DropDownListFor(m => m.TBLKATEGORİLER.KATEGORIID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+        @*@Html.TextBoxFor(m => m.URUNKATEGORI, new { @class = "form-control" })*@
+        <br />
+        @Html.LabelFor(m => m.URUNFIYAT, "Ürün Fiyatı", new { @class = "label-control" })
+        @Html.TextBoxFor(m => m.URUNFIYAT, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.STOK, "Stok Adeti", new { @class = "label-control" })
+        @Html.TextBoxFor(m => m.STOK, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-warning" id="btn">Güncelle</button>
+    </div>
+    <script>
+        $("#btn").click(function () {
+            alert('Ürün Güncellenmiştir..');
+        });
+    </script>
+}
+
